@@ -26,22 +26,44 @@ void main() {
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+
+  List<String> Club = ['ClubA', 'ClubB', 'ClubC', 'ClubD', 'ClubE', 'ClubF','ClubG','ClubH'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        padding: EdgeInsets.all(30),
-        child: Column(
-          children: <Widget>[
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-            Text('Hello World'),
-          ],
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(30),
+          child: SingleChildScrollView(
+            child: Column(
+              children: Club.map((club) => SizedBox(
+                height: 150, // Set a constant height
+                child: Container(
+                  width: double.infinity,
+                  color: Colors.pink,
+                  padding: EdgeInsets.all(8.0),
+                  margin: EdgeInsets.symmetric(vertical: 4.0),
+                  child: Text(
+                    club,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24, // Set a larger font size
+                    ),
+                  ),
+                ),
+              )).toList(),
+            ),
+          ),
         ),
       ),
     );
