@@ -22,6 +22,28 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: Text("Hello world")
+    home: Home(),
   ));
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        padding: EdgeInsets.all(30),
+        child: Column(
+          children: <Widget>[
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+            Text('Hello World'),
+          ],
+        ),
+      ),
+    );
+  }
 }
